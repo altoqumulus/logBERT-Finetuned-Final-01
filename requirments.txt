@@ -1,0 +1,31 @@
+# ---------------------------
+# Core deep‑learning stack
+# ---------------------------
+--extra-index-url https://download.pytorch.org/whl/cu121
+torch==2.2.1+cu121          # Python 3.12 wheels; forward‑compatible with CUDA 12.5
+torchvision==0.17.1+cu121   # optional, but good to have for future image utils
+torchaudio==2.2.1+cu121     # "
+
+# ---------------------------
+# Log parsing & preprocessing
+# ---------------------------
+drain3==0.9.11              # template miner
+tqdm==4.67.1                # progress bars
+pandas==2.3.1
+pyyaml==6.0.2
+
+# ---------------------------
+# Training / evaluation helpers
+# ---------------------------
+scikit-learn==1.5.0         # precision / recall / F1, train‑test split
+
+# ---------------------------
+# Optional REST inference API
+# ---------------------------
+fastapi==0.111.0
+uvicorn[standard]==0.30.1
+
+numpy < 2
+clearml==1.14.3
+#clearml > 1.14.3
+matplotlib
