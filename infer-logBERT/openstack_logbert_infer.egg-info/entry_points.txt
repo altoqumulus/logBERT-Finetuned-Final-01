@@ -1,0 +1,2 @@
+[console_scripts]
+logbert-infer = logbert_infer.infer:cli
