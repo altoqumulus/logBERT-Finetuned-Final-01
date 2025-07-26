@@ -3,7 +3,7 @@ import torch.nn as nn, torch
 
 class LogBERT(nn.Module):
     def __init__(self, vocab_size, embed_dim=256, hidden_dim=256,
-                 n_heads=8, n_layers=8, max_len=256):
+                 n_heads=8, n_layers=8, max_len=40):
         super().__init__()
         #self.token_emb = nn.Embedding(vocab_size, embed_dim, padding_idx=MASK_IDX)
         self.token_emb = nn.Embedding(vocab_size, embed_dim)
