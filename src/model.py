@@ -2,15 +2,15 @@ import torch.nn as nn, torch
 
 
 class LogBERT(nn.Module):
-    def __init__(self, vocab_size, embed_dim=128, hidden_dim=256,
-                 n_heads=4, n_layers=2, max_len=33):
+    def __init__(self, vocab_size, embed_dim=256, hidden_dim=256,
+                 n_heads=8, n_layers=8, max_len=33):
         super().__init__()
         #self.token_emb = nn.Embedding(vocab_size, embed_dim, padding_idx=MASK_IDX)
         self.token_emb = nn.Embedding(vocab_size, embed_dim)
         self.pos_emb   = nn.Embedding(max_len, embed_dim)
         encoder_layer = nn.TransformerEncoderLayer(
             d_model=embed_dim, nhead=n_heads, dim_feedforward=hidden_dim,
-            batch_first=True)
+            batch_first=True, activation='gelu')
         self.encoder = nn.TransformerEncoder(encoder_layer, num_layers=n_layers)
         self.mlkp_head = nn.Linear(embed_dim, vocab_size)   # predict token id
 
